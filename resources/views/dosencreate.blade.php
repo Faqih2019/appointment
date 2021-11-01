@@ -12,23 +12,23 @@
 
 <div class="container">
   <h2>{{$title}}</h2>
-  <form action="{{ url('dosen/change/'.$dosen->id)}}" method="POST" enctype="multipart/form-data">
+  <form action="{{ url('dosen/add')}}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="form-group">
       <label for="nama">Nama:</label>
-      <input value="{{$dosen->nama}}" type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
+      <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
     </div>
     <div class="form-group">
       <label for="nidn">NIDN:</label>
-      <input value="{{$dosen->nidn}}" type="text" class="form-control" id="nidn" placeholder="Masukkan NIDN" name="nidn">
+      <input type="text" class="form-control" id="nidn" placeholder="Masukkan NIDN" name="nidn">
     </div>
     <div class="form-group">
       <label for="kontak">Kontak:</label>
-      <input value="{{$dosen->kontak}}" type="phoneNumber" class="form-control" id="kontak" placeholder="Masukkan Kontak" name="kontak">
+      <input type="phoneNumber" class="form-control" id="kontak" placeholder="Masukkan Kontak" name="kontak">
     </div>
     <div class="form-group">
       <label for="alamat">Alamat:</label>
-      <textarea class="form-control" rows="5" id="alamat" name="alamat">"{{$dosen->alamat}}"</textarea>
+      <textarea class="form-control" rows="5" id="alamat" name="alamat"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     

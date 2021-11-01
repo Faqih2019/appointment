@@ -20,4 +20,12 @@ class dosen extends Model
     public function addDosen($data){
         DB::table('dosens')->insert($data);
     }
+
+    public function editDosen($data, $id){
+        DB::table('dosens')->where('id',$id)->update($data);
+    }
+
+    public function deleteDosen($id){
+        DB::table('dosens')->where('id',$id)->delete();
+    }
 }

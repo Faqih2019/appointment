@@ -33,8 +33,10 @@ route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'mahasiswadele
 route::get('/dosen', [DosenController::class, 'dosen']);
 route::get('/dosen/{id}/edit', [DosenController::class, 'dosenedit']);
 route::get('/dosen/show/{id}', [DosenController::class, 'dosenshow']);
+route::post('/dosen/change/{id}', [DosenController::class, 'dosenchange']);
 route::get('/dosen/create', [DosenController::class, 'dosencreate']);
 route::post('/dosen/add', [DosenController::class, 'dosenadd']);
+route::get('/dosen/delete/{id}', [DosenController::class, 'dosendelete']);
 
 //Jadwal
 route::get('/jadwal', [JadwalController::class, 'jadwal']);
