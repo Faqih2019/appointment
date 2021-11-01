@@ -12,27 +12,27 @@
 
 <div class="container">
   <h2>{{$title}}</h2>
-  <form action="{{ url('mahasiswa/change/'.$mahasiswa->id)}}" method="POST" enctype="multipart/form-data">
+  <form action="{{ url('mahasiswa/add')}}" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="form-group">
       <label for="nama">Nama:</label>
-      <input value="{{$mahasiswa->nama}}" type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
+      <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama" name="nama">
     </div>
     <div class="form-group">
       <label for="nim">NIM:</label>
-      <input value="{{$mahasiswa->nim}}" type="text" class="form-control" id="nim" placeholder="Masukkan nim" name="nim">
+      <input type="text" class="form-control" id="nim" placeholder="Masukkan nim" name="nim">
     </div>
     <div class="form-group">
       <label for="tanggallahir">Tanggal Lahir:</label>
-      <input value="{{$mahasiswa->tanggal_lahir}}" type="date" class="form-control" id="tanggallahir" placeholder="Masukkan tanggal lahir" name="tanggallahir">
+      <input type="date" class="form-control" id="tanggallahir" placeholder="Masukkan tanggal lahir" name="tanggallahir">
     </div>
     <div class="form-group">
       <label for="tahunmasuk">Tahun Masuk:</label>
-      <input value="{{$mahasiswa->tahun_masuk}}" type="text" class="form-control" id="tahunmasuk" placeholder="Masukkan tahun masuk" name="tahunmasuk">
+      <input type="text" class="form-control" id="tahunmasuk" placeholder="Masukkan tahun masuk" name="tahunmasuk">
     </div>
     <div class="form-group">
       <label for="alamat">Alamat:</label>
-      <textarea class="form-control" rows="5" id="alamat" name="alamat">{{$mahasiswa->alamat}}</textarea>
+      <textarea class="form-control" rows="5" id="alamat" name="alamat"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 

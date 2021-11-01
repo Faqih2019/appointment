@@ -24,8 +24,10 @@ use App\Http\Controllers\JadwalController;
 route::get('/mahasiswa', [MahasiswaController::class, 'mahasiswa']);
 route::get('/mahasiswa/{id}/edit', [MahasiswaController::class, 'mahasiswaedit']);
 route::get('/mahasiswa/show/{id}', [MahasiswaController::class, 'mahasiswashow']);
+route::post('/mahasiswa/change/{id}', [MahasiswaController::class, 'mahasiswachange']);
 route::get('/mahasiswa/create', [MahasiswaController::class, 'mahasiswacreate']);
 route::post('/mahasiswa/add', [MahasiswaController::class, 'mahasiswaadd']);
+route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'mahasiswadelete']);
 
 //Dosen
 route::get('/dosen', [DosenController::class, 'dosen']);

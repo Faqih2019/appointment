@@ -19,12 +19,12 @@ class MahasiswaController extends Controller
     public function mahasiswacreate()
     {
         $data = ['title' => "Create Mahasiswa"];
-        return view('mahasiswaedit', $data);
+        return view('mahasiswacreate', $data);
     }
 
-    public function mahasiswaedit()
-    {
-        $data = ['title' => "Edit Mahasiswa"];
+    public function mahasiswaEdit($id){
+        $data = ['mahasiswa' => $this->Mahasiswa->getOneData($id),
+                'title' => "Edit Mahasiswa"];
         return view('mahasiswaedit', $data);
     }
 
@@ -47,6 +47,22 @@ class MahasiswaController extends Controller
                 'updated_at' => $datetime,
             ];
             $this->Mahasiswa->addMahasiswa($data);
+            return redirect("mahasiswa");
+    }
+
+    public function mahasiswachange($id){
+        $datetime = date_create()->format('Y-m-d H:i:s');
+
+            $data =[
+                'nama' => Request()->nama,
+                'nim' => Request()->nim,
+                'tanggal_lahir' => Request()->tanggallahir,
+                'alamat' => Request()->alamat,
+                'tahun_masuk' => Request()->tahunmasuk,
+                'updated_at' => $datetime,
+            ];
+
+            $this->Mahasiswa->editMahasiswa($data, $id);
             return redirect("mahasiswa");
     }
 

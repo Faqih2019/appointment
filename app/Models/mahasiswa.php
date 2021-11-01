@@ -20,4 +20,8 @@ class mahasiswa extends Model
     public function addMahasiswa($data){
         DB::table('mahasiswas')->insert($data);
     }
+
+    public function editMahasiswa($data, $id){
+        DB::table('mahasiswas')->where('id',$id)->update($data);
+    }
 }
