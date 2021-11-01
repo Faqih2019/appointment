@@ -66,4 +66,9 @@ class MahasiswaController extends Controller
             return redirect("mahasiswa");
     }
 
+    public function mahasiswaDelete($id){
+        $this->Mahasiswa->deleteMahasiswa($id);
+        return redirect('mahasiswa');
+    }
+
 }

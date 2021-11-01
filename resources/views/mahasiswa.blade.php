@@ -42,7 +42,9 @@
           
           <a href='/mahasiswa/{{$data->id}}/edit'>
         <button type="button" class="btn btn-primary">Edit</button> </a>
-        <button type="button" class="btn btn-danger">Delete</button>
+
+        <a href='/mahasiswa/delete/{{$data->id}}'>
+        <button type="button" class="btn btn-danger">Delete</button></a>
         </td>
       </tr>
       @endforeach

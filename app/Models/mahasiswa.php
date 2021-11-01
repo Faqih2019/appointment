@@ -24,4 +24,8 @@ class mahasiswa extends Model
     public function editMahasiswa($data, $id){
         DB::table('mahasiswas')->where('id',$id)->update($data);
     }
+
+    public function deleteMahasiswa($id){
+        DB::table('mahasiswas')->where('id',$id)->delete();
+    }
 }
