@@ -39,6 +39,4 @@ route::post('/dosen/add', [DosenController::class, 'dosenadd']);
 route::get('/dosen/delete/{id}', [DosenController::class, 'dosendelete']);
 
 //Jadwal
-route::get('/jadwal', [JadwalController::class, 'jadwal']);
-route::get('/jadwaledit', [JadwalController::class, 'jadwaledit']);
-route::get('/jadwalshow', [JadwalController::class, 'jadwalshow']);
+route::resource('/jadwal', JadwalController::class);

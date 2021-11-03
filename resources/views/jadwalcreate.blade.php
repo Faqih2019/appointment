@@ -11,15 +11,14 @@
 <body>
 
 <div class="container">
-  <h2>Edit Jadwal</h2>
-  <form action="{{ url('jadwal/'.$jadwal->id)}}" method="POST" enctype="multipart/form-data">
+  <h2>Create Jadwal</h2>
+  <form action="{{ url('jadwal')}}" method="POST" enctype="multipart/form-data">
   @csrf
-  @method('PUT')
     <div class="form-group">
       <label for="mahasiswa">mahasiswa:</label>
       <select class="form-control" id="sel1" name="mahasiswa">
           @foreach($dataMahasiswa as $mahasiswa)
-          <option value = '{{$mahasiswa->id}}' @if($jadwal->mahasiswa_id == $mahasiswa->id) selected @endif>{{$mahasiswa->nama}}</option>
+          <option value = '{{$mahasiswa->id}}'>{{$mahasiswa->nama}}</option>
           @endforeach
         </select>
 
@@ -28,28 +27,28 @@
       <label for="dosen">Dosen:</label>
       <select class="form-control" id="sel1" name = "dosen">
           @foreach($dataDosen as $dosen)
-          <option value = '{{$dosen->id}}' @if($jadwal->dosen_id == $dosen->id) selected @endif>{{$dosen->nama}}</option>
+          <option value = '{{$dosen->id}}'>{{$dosen->nama}}</option>
           @endforeach
         </select>
     
     <div class="form-group">
       <label for="judul">Judul:</label>
-      <input value="{{$jadwal->judul}}" type="text" class="form-control" id="judul" placeholder="Masukkan judul" name="judul">
+      <input type="text" class="form-control" id="judul" placeholder="Masukkan judul" name="judul">
     </div>
 
     <div class="form-group">
       <label for="deskripsi">Deskripsi:</label>
-      <textarea class="form-control" rows="5" id="deskripsi" name="deskripsi">{{$jadwal->deskripsi}}</textarea>
+      <textarea class="form-control" rows="5" id="deskripsi" name="deskripsi"></textarea>
     </div>
 
     <div class="form-group">
       <label for="awal">Awal:</label>
-      <input value='{{ date("Y-m-d\TH:i:s", strtotime($jadwal->awal)) }}' type="datetime-local" class="form-control" id="awal" placeholder="" name="awal">
+      <input type="datetime-local" class="form-control" id="awal" placeholder="" name="awal">
     </div>
 
     <div class="form-group">
       <label for="akhir">Akhir:</label>
-      <input value='{{ date("Y-m-d\TH:i:s", strtotime($jadwal->akhir)) }}' type="datetime-local" class="form-control" id="akhir" placeholder="" name="akhir">
+      <input type="datetime-local" class="form-control" id="akhir" placeholder="" name="akhir">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

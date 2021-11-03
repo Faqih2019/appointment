@@ -11,8 +11,9 @@
 <body>
 
 <div class="container">
-  <h2>DOSEN</h2>
-  <button type="button" class="btn btn-success">Create Jadwal</button>            
+  <h2>JADWAL</h2>
+  <a href = '/jadwal/create'>
+  <button type="button" class="btn btn-success">Create Jadwal</button></a>           
   <table class="table">
     <thead>
       <tr>
@@ -27,76 +28,32 @@
       </tr>
     </thead>
     <tbody>
+    @foreach ($dataJadwal as $data)
       <tr>
-        <td>1</td>
-        <td>ipeh</td>
-        <td>Pak Edo</td>
-        <td>Assessment 1</td>
-        <td>Ujian test</td>
-        <td>291021</td>
-        <td>311021</td>
+        <td>{{$data->id}}</td>
+        <td>{{$data->getMahasiswa()->nama}}</td>
+        <td>{{$data->getDosen()->nama}}</td>
+        <td>{{$data->judul}}</td>
+        <td>{{$data->deskripsi}}</td>
+        <td>{{$data->awal}}</td>
+        <td>{{$data->akhir}}</td>
         <td>
-        <button type="button" class="btn btn-info">Show</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+          <a href='/jadwal/{{$data->id}}'>
+        <button type="button" class="btn btn-info">Show</button> </a>
+          
+          <a href='/jadwal/{{$data->id}}/edit'>
+        <button type="button" class="btn btn-primary">Edit</button> </a>
+
+        <form method="POST" action="/jadwal/{{$data->id}}">
+        @csrf
+        @method('Delete')
+        <button type="submit" class="btn btn-danger">
+          Delete
+        </button>
+                        </form>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>ipeh</td>
-        <td>Pak Edo</td>
-        <td>Assessment 1</td>
-        <td>Ujian test</td>
-        <td>291021</td>
-        <td>311021</td>
-        <td>
-        <button type="button" class="btn btn-info">Show</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>ipeh</td>
-        <td>Pak Edo</td>
-        <td>Assessment 1</td>
-        <td>Ujian test</td>
-        <td>291021</td>
-        <td>311021</td>
-        <td>
-        <button type="button" class="btn btn-info">Show</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>ipeh</td>
-        <td>Pak Edo</td>
-        <td>Assessment 1</td>
-        <td>Ujian test</td>
-        <td>291021</td>
-        <td>311021</td>
-        <td>
-        <button type="button" class="btn btn-info">Show</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>ipeh</td>
-        <td>Pak Edo</td>
-        <td>Assessment 1</td>
-        <td>Ujian test</td>
-        <td>291021</td>
-        <td>311021</td>
-        <td>
-        <button type="button" class="btn btn-info">Show</button>
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        </td>
-      </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
